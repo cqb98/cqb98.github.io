@@ -31,7 +31,7 @@ else
 	  xp.open("GET","http://cqb98.synology.me:50614/static/test.js",true);
 	  xp.send();
     }, function (err) {
-        console.log(err.code);
+        alert(err.code);
     }, {
         enableHighAcuracy: true, //位置是否精确获取
         timeout: 5000,//获取位置允许的最长时间
