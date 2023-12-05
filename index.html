@@ -122,11 +122,15 @@ if(req["p"])
     //https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}
     //url:"https://maponline{0-1}.bdimg.com/starpic/?qt=satepc&u=x={x};y={-y};z={z};v=009;type=sate&fm=46&app=webearth2&v=009&udt=20230725"
     let tianditu_wx = new ol.source.XYZ({
-      url:"http://cqb98.synology.me:50614/api/map?source=google_earth&x={x}&y={y}&z={z}"
+      //url:"http://cqb98.synology.me:50614/api/map?source=google_earth&x={x}&y={y}&z={z}"
+url:"https://t{0-6}.tianditu.gov.cn/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={z}&TileRow={y}&TileCol={x}&style=default&format=tiles&tk=f4d0553a23372a2f48c74851c7e46f4d"
+	
     });//卫星图
     let osm_zc = new ol.source.OSM();//正常地图
     let tianditu_bz = new ol.source.XYZ({
-	url:"http://cqb98.synology.me:50614/api/cia?x={x}&y={y}&z={z}"
+	//url:"http://cqb98.synology.me:50614/api/cia?x={x}&y={y}&z={z}"
+url:"https://t{0-6}.tianditu.gov.cn/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={z}&TileRow={y}&TileCol={x}&style=default&format=tiles&tk=f4d0553a23372a2f48c74851c7e46f4d"
+	
     });
     /*
     let resolutions = [];
