@@ -32,8 +32,10 @@ else
 				 navigator.geolocation.getCurrentPosition(function (position) {
 				       console.log(position);
 					   alert(position.coords.latitude);
+					     var p=[position.coords.latitude,position.coords.longitude];
+					 
 				    }, function (err) {
-				        alert(err.code);
+				        alert("定位失败:"+err.code);
 				    }, {
 				        enableHighAcuracy: true, //位置是否精确获取
 				        timeout: 5000,//获取位置允许的最长时间
