@@ -4,7 +4,7 @@
        console.log(position);
 	   alert(position.coords.latitude);
     }, function (err) {
-        console.log(err.code);
+        alert(err.code);
     }, {
         enableHighAcuracy: true, //位置是否精确获取
         timeout: 5000,//获取位置允许的最长时间
