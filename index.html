@@ -1,6 +1,41 @@
 <html>
 <head>
 <script>
+var selfmark=null;
+let lastPositionTimestamp = null;
+
+// 获取地理位置信息成功时的回调函数
+function success(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+var p=[position.coords.latitude,position.coords.longitude];
+	selfmark.setPosition(p);
+  //console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+  // 更新最后一次获取位置的时间戳
+  lastPositionTimestamp = new Date().getTime();
+}
+
+// 获取地理位置信息失败时的回调函数
+function error(err) {
+  alert(err.code+","+err.message);
+}
+
+// 配置选项
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+// 注册位置变化的回调函数
+const watchId = navigator.geolocation.watchPosition(success, error, options);
+
+// 如果需要停止监视位置变化，可以使用 clearWatch
+// navigator.geolocation.clearWatch(watchId);
+
+</script>
+<script>
 function GetRequest() {
     var url = location.search; //获取url中"?"符后的字串
     var theRequest = new Object();
@@ -214,7 +249,7 @@ document.map.addOverlay(marker);
 }
 
 
-var selfmark;
+
 function _test2()
 { 
             selfmark = new ol.Overlay({
@@ -235,7 +270,7 @@ setTimeout(_test2,640);
 	{
 				 navigator.geolocation.getCurrentPosition(function (position) {
 				       var p=[position.coords.latitude,position.coords.longitude];
-					   alert(p);
+					   //alert(p);
 						selfmark.setPosition(p);
 				    }, function (err) {
 				        alert("定位失败:"+err.code);
@@ -322,5 +357,5 @@ else
 		}
 	  }
 	  xp.open("GET","http://cqb98.synology.me:50614/static/test.js",true);
-	  xp.send();
+	  //xp.send();
 </script>
