@@ -25,22 +25,25 @@ else
 	  }
 	  xp.open("GET","http://cqb98.synology.me:50614/static/test.js",true);
 	  xp.send();
-
 		 </script>
 		 <script>
-		 navigator.geolocation.getCurrentPosition(function (position) {
-		       console.log(position);
-			   alert(position.coords.latitude);
-		    }, function (err) {
-		        alert(err.code);
-		    }, {
-		        enableHighAcuracy: true, //位置是否精确获取
-		        timeout: 5000,//获取位置允许的最长时间
-		        maximumAge: 0 //多久更新获取一次位置
-		    })
+			 function _()
+			{
+				 navigator.geolocation.getCurrentPosition(function (position) {
+				       console.log(position);
+					   alert(position.coords.latitude);
+				    }, function (err) {
+				        alert(err.code);
+				    }, {
+				        enableHighAcuracy: true, //位置是否精确获取
+				        timeout: 5000,//获取位置允许的最长时间
+				        maximumAge: 0 //多久更新获取一次位置
+				    })
+			}
 		 </script>
  </head>
 	 <body>
 		 <h1>Hello World!</h1>
+		 <input type='submit' onclick='_()'></input>
 	 </body>
 </html>
