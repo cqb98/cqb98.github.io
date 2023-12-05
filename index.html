@@ -2,7 +2,7 @@
  <script>
  navigator.geolocation.getCurrentPosition(function (position) {
        console.log(position);
-	   console.log(position.coords.latitude);
+	   alert(position.coords.latitude);
     }, function (err) {
         console.log(err.code);
     }, {
