@@ -6,11 +6,11 @@ let lastPositionTimestamp = null;
 
 // 获取地理位置信息成功时的回调函数
 function success(position) {
-alert('ok');
+//alert('ok');
 	
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
-var p=[position.coords.latitude,position.coords.longitude];
+var p=[position.coords.longitude,position.coords.latitude];
 	
   //console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
 
